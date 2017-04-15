@@ -160,6 +160,7 @@ def entry():
 
     output = Path(args.csvfile)
     write_header = not output.exists()
+    newline = False
     if not write_header:
         with output.open('r') as f:
             newline = f.read()[-1] != '\n'
