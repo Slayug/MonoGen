@@ -133,8 +133,14 @@ def create_account(username, password, email, birthday, captchakey2, captchatime
     elem.clear()
     elem.send_keys(email)
 
-    driver.find_element_by_id("id_public_profile_opt_in_1").click()
-    driver.find_element_by_name("terms").click()
+    element = driver.find_element_by_id("id_public_profile_opt_in_1")
+    driver.execute_script("arguments[0].scrollIntoView(true);", element)
+    element.click()
+
+
+    element = driver.find_element_by_name("terms")
+    driver.execute_script("arguments[0].scrollIntoView(true);", element)
+    element.click()
 
     if not captchakey2:
         #Do manual captcha entry
